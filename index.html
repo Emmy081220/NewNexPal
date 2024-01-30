@@ -28,6 +28,41 @@
 
 </head>
 
+<style>
+    table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            padding: 15px;
+        }
+
+       
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+
+        tr {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</style>
+
 <body>
 
     <!-- Preloader -->
@@ -108,7 +143,7 @@
                             </span>
                         </div>
                         <!-- h1 -->
-                        <h1>Seamlessly <span>receive paypal funds &</span> <span>digital currencies.</span></h1>
+                        <h1>Seamlessly <span>receive paypal funds </span>& <span>digital currencies.</span></h1>
                         <!-- p -->
                         <p>
                             a seamless experience tailored just for you. Effortlessly manage your transactions as you receive funds securely, ensuring your money is always at your fingertips.
@@ -213,7 +248,7 @@
             <div class="pricing_inner">
                 
                 <div class="container">
-                    <div class="dotes_blue"><img src="images/blue_dotes.png" alt="image"></div>
+                    <!-- <div class="dotes_blue"><img src="images/blue_dotes.png" alt="image"></div> -->
                     <div class="section_title mb-5" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
                         <span class="title_badge">Market</span>
                         <h2>Crypto Market</h2>
@@ -221,8 +256,42 @@
                     
                     <div class="tab-content" id="myTabContent">
 
-                        <img src="images/live-table.png" width="100%" alt="">
-                        <!-- THIS IS THE SECTION WHERE YOU'LL EMBED THE MARKET CODE. -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>CURRENCY</th>
+                                    <th>PRICE</th>
+                                    <th>24HR CHANGE</th>
+                                    <th>MARKET CAP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>BITCOIN</td>
+                                    <td id="bitcoin-price">-</td>
+                                    <td id="bitcoin-change" class="green">-</td>
+                                    <td id="bitcoin-market-cap">-</td>
+                                </tr>
+                                <tr>
+                                    <td>ETH</td>
+                                    <td id="eth-price">-</td>
+                                    <td id="eth-change" class="green">-</td>
+                                    <td id="eth-market-cap">-</td>
+                                </tr>
+                                <tr>
+                                    <td>USDT TETHER (TRC 20)</td>
+                                    <td id="usdt-trc-price">-</td>
+                                    <td id="usdt-trc-change" class="green">-</td>
+                                    <td id="usdt-trc-market-cap">-</td>
+                                </tr>
+                                <tr>
+                                    <td>USDT TETHER (ERC 20)</td>
+                                    <td id="usdt-erc-price">-</td>
+                                    <td id="usdt-erc-change" class="green">-</td>
+                                    <td id="usdt-erc-market-cap">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                     </div>
                 </div>
@@ -990,9 +1059,68 @@
 
     </script>
 
+<script>
+    // Assume you have a function to update the table data dynamically.
+    // You can use JavaScript or a library like Fetch or Axios for data fetching.
+
+    // Example: Update data dynamically (replace this with your actual data)
+    function updateTableData() {
+        // Sample data, replace with actual API calls
+        const bitcoinData = {
+            price: 40000,
+            change: -5,
+            marketCap: 750000000000
+        };
+
+        const ethData = {
+            price: 2500,
+            change: 3,
+            marketCap: 300000000000
+        };
+
+        const usdtTrcData = {
+            price: 1,
+            change: 0.5,
+            marketCap: 50000000000
+        };
+
+        const usdtErcData = {
+            price: 1,
+            change: -0.2,
+            marketCap: 50000000000
+        };
+
+        // Update Bitcoin row
+        document.getElementById('bitcoin-price').innerText = `$${bitcoinData.price}`;
+        document.getElementById('bitcoin-change').innerText = `${bitcoinData.change}%`;
+        document.getElementById('bitcoin-change').className = bitcoinData.change < 0 ? 'red' : 'green';
+        document.getElementById('bitcoin-market-cap').innerText = `$${bitcoinData.marketCap.toLocaleString()}`;
+
+        // Update ETH row
+        document.getElementById('eth-price').innerText = `$${ethData.price}`;
+        document.getElementById('eth-change').innerText = `${ethData.change}%`;
+        document.getElementById('eth-change').className = ethData.change < 0 ? 'red' : 'green';
+        document.getElementById('eth-market-cap').innerText = `$${ethData.marketCap.toLocaleString()}`;
+
+        // Update USDT TETHER (TRC 20) row
+        document.getElementById('usdt-trc-price').innerText = `$${usdtTrcData.price}`;
+        document.getElementById('usdt-trc-change').innerText = `${usdtTrcData.change}%`;
+        document.getElementById('usdt-trc-change').className = usdtTrcData.change < 0 ? 'red' : 'green';
+        document.getElementById('usdt-trc-market-cap').innerText = `$${usdtTrcData.marketCap.toLocaleString()}`;
+
+        // Update USDT TETHER (ERC 20) row
+        document.getElementById('usdt-erc-price').innerText = `$${usdtErcData.price}`;
+        document.getElementById('usdt-erc-change').innerText = `${usdtErcData.change}%`;
+        document.getElementById('usdt-erc-change').className = usdtErcData.change < 0 ? 'red' : 'green';
+        document.getElementById('usdt-erc-market-cap').innerText = `$${usdtErcData.marketCap.toLocaleString()}`;
+    }
+
+    // Call the updateTableData function to initially populate the table
+    updateTableData();
+
+    // You can use setInterval to update the data at regular intervals
+    // setInterval(updateTableData, 5000); // Update every 5 seconds (5000 milliseconds)
+</script>
+
 </body>
-
-
-
-
 </html>
