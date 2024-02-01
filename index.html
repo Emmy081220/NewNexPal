@@ -25,44 +25,11 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Live crypto table -->
+    <script defer src="https://www.livecoinwatch.com/static/lcw-widget.js"></script>
 
 </head>
 
-<style>
-    table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            padding: 15px;
-        }
-
-       
-        
-        th, td {
-            /* border-radius: 15px; */
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        .green {
-            color: green;
-        }
-
-        .red {
-            color: red;
-        }
-
-        tr {
-            background-color: #f2f2f2;
-        }
-
-    </style>
-</style>
 
 <body>
 
@@ -247,47 +214,12 @@
                     <!-- <div class="dotes_blue"><img src="images/blue_dotes.png" alt="image"></div> -->
                     <div class="section_title mb-5" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
                         <span class="title_badge">Market</span>
-                        <h2>Crypto Market</h2>
+                        <h2>Live crypto market</h2>
                     </div>
                     
                     <div class="tab-content" id="myTabContent">
 
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>CURRENCY</th>
-                                    <th>PRICE</th>
-                                    <th>24HR CHANGE</th>
-                                    <th>MARKET CAP</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>BITCOIN</td>
-                                    <td id="bitcoin-price">-</td>
-                                    <td id="bitcoin-change" class="green">-</td>
-                                    <td id="bitcoin-market-cap">-</td>
-                                </tr>
-                                <tr>
-                                    <td>ETH</td>
-                                    <td id="eth-price">-</td>
-                                    <td id="eth-change" class="green">-</td>
-                                    <td id="eth-market-cap">-</td>
-                                </tr>
-                                <tr>
-                                    <td>USDT TETHER (TRC 20)</td>
-                                    <td id="usdt-trc-price">-</td>
-                                    <td id="usdt-trc-change" class="green">-</td>
-                                    <td id="usdt-trc-market-cap">-</td>
-                                </tr>
-                                <tr>
-                                    <td>USDT TETHER (ERC 20)</td>
-                                    <td id="usdt-erc-price">-</td>
-                                    <td id="usdt-erc-change" class="green">-</td>
-                                    <td id="usdt-erc-market-cap">-</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="livecoinwatch-widget-5" lcw-base="USD" lcw-color-tx="#ffffff" lcw-marquee-1="coins" lcw-marquee-2="movers" lcw-marquee-items="20" ></div>
 
                     </div>
                 </div>
